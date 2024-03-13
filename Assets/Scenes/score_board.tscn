@@ -1,0 +1,363 @@
+[gd_scene load_steps=3 format=3 uid="uid://6rqlid2mql1f"]
+
+[ext_resource type="Script" path="res://Scripts/score_board.gd" id="1_18t0b"]
+[ext_resource type="Texture2D" uid="uid://cib47ls3u3gag" path="res://Assets/Textures/score_board_render.png" id="2_4xwqa"]
+
+[node name="ScoreBoard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_18t0b")
+
+[node name="Graphic" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = -13.0
+offset_right = 409.0
+offset_bottom = 50.0
+scale = Vector2(3, 3)
+texture = ExtResource("2_4xwqa")
+expand_mode = 1
+
+[node name="Score" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Score1" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 85.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score2" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 40.0
+offset_right = 115.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score3" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 40.0
+offset_right = 195.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score4" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 40.0
+offset_right = 225.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score5" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 40.0
+offset_right = 305.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score6" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 40.0
+offset_right = 335.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score7" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 40.0
+offset_right = 415.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score8" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 40.0
+offset_right = 445.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score9" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 40.0
+offset_right = 525.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score10" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 40.0
+offset_right = 555.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score11" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 585.0
+offset_top = 40.0
+offset_right = 630.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score12" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 615.0
+offset_top = 40.0
+offset_right = 660.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score13" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 695.0
+offset_top = 40.0
+offset_right = 740.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score14" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 40.0
+offset_right = 770.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score15" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 805.0
+offset_top = 40.0
+offset_right = 850.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score16" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 835.0
+offset_top = 40.0
+offset_right = 880.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score17" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 915.0
+offset_top = 40.0
+offset_right = 960.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score18" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 945.0
+offset_top = 40.0
+offset_right = 990.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score19" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 999.0
+offset_top = 40.0
+offset_right = 1044.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score20" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 1030.0
+offset_top = 40.0
+offset_right = 1075.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="Score21" type="RichTextLabel" parent="Score"]
+layout_mode = 0
+offset_left = 1058.0
+offset_top = 40.0
+offset_right = 1103.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="FinalScore" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 1145.0
+offset_top = 60.0
+offset_right = 1195.0
+offset_bottom = 117.0
+theme_override_font_sizes/normal_font_size = 40
+text = "0
+"
+
+[node name="TotalScore" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TotalScore1" type="RichTextLabel" parent="TotalScore"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 100.0
+offset_right = 50.0
+offset_bottom = 139.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="TotalScore2" type="RichTextLabel" parent="TotalScore"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 115.0
+offset_top = 100.0
+offset_right = 160.0
+offset_bottom = 139.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="TotalScore3" type="RichTextLabel" parent="TotalScore"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 225.0
+offset_top = 100.0
+offset_right = 270.0
+offset_bottom = 139.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="TotalScore4" type="RichTextLabel" parent="TotalScore"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 335.0
+offset_top = 100.0
+offset_right = 380.0
+offset_bottom = 139.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="TotalScore5" type="RichTextLabel" parent="TotalScore"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 445.0
+offset_top = 100.0
+offset_right = 490.0
+offset_bottom = 139.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="TotalScore6" type="RichTextLabel" parent="TotalScore"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 555.0
+offset_top = 100.0
+offset_right = 600.0
+offset_bottom = 139.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="TotalScore7" type="RichTextLabel" parent="TotalScore"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 665.0
+offset_top = 100.0
+offset_right = 710.0
+offset_bottom = 139.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="TotalScore8" type="RichTextLabel" parent="TotalScore"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 775.0
+offset_top = 100.0
+offset_right = 820.0
+offset_bottom = 139.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="TotalScore9" type="RichTextLabel" parent="TotalScore"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 885.0
+offset_top = 100.0
+offset_right = 930.0
+offset_bottom = 139.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"
+
+[node name="TotalScore10" type="RichTextLabel" parent="TotalScore"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 995.0
+offset_top = 100.0
+offset_right = 1040.0
+offset_bottom = 139.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0
+"

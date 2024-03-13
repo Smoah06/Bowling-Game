@@ -1,0 +1,131 @@
+[gd_scene load_steps=16 format=3 uid="uid://dogx832wf6nid"]
+
+[ext_resource type="FontFile" uid="uid://bgkycjgnq0ovr" path="res://Assets/Font/Ldfcomicsans-jj7l.ttf" id="1_4c6vc"]
+[ext_resource type="Script" path="res://Scripts/Options.gd" id="1_ww3h5"]
+[ext_resource type="Shader" uid="uid://bk6y1suvexf4t" path="res://Assets/PhongShader.tres" id="2_smchk"]
+[ext_resource type="Texture2D" uid="uid://dw1qpc6jq6atq" path="res://Assets/Textures/REFLECT.JPG" id="3_ncpey"]
+[ext_resource type="Texture2D" uid="uid://858ilp486i6x" path="res://Assets/Textures/BACK144.png" id="4_odo21"]
+[ext_resource type="AudioStream" uid="uid://c47qbn5bx8ukg" path="res://Assets/Audio/split.ogg" id="6_yeybc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_at4fl"]
+bg_color = Color(0, 0.552941, 0.52549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jramp"]
+bg_color = Color(0, 0.321569, 0.298039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojppc"]
+bg_color = Color(0, 0.866667, 0.776471, 1)
+
+[sub_resource type="Theme" id="Theme_gd0pv"]
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 3
+Button/font_sizes/font_size = 50
+Button/fonts/font = ExtResource("1_4c6vc")
+Button/styles/hover = SubResource("StyleBoxFlat_at4fl")
+Button/styles/normal = SubResource("StyleBoxFlat_jramp")
+Button/styles/pressed = SubResource("StyleBoxFlat_ojppc")
+
+[sub_resource type="SphereMesh" id="SphereMesh_2hdun"]
+radius = 0.109
+height = 0.218
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g04y4"]
+render_priority = 0
+shader = ExtResource("2_smchk")
+shader_parameter/Reflectivness = 0.0
+shader_parameter/DiffuseColor = Color(1, 1, 1, 1)
+shader_parameter/Fogginess = 0.0
+shader_parameter/NormalUVSize = Vector3(1, 1, 1)
+shader_parameter/DiffuseIntensity = 1.0
+shader_parameter/AmbientColor = Color(0, 0, 0, 1)
+shader_parameter/AmbientIntensity = 1.0
+shader_parameter/SpecIntensity = 1.0
+shader_parameter/Shininess = 100.0
+shader_parameter/SpecularStrength = 50.0
+shader_parameter/M_PI = 3.14159
+shader_parameter/tex_frg_14 = ExtResource("4_odo21")
+shader_parameter/environment_texture = ExtResource("3_ncpey")
+
+[sub_resource type="Environment" id="Environment_jt55j"]
+background_mode = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pjl6n"]
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6vafr"]
+render_priority = 0
+shader = ExtResource("2_smchk")
+shader_parameter/Reflectivness = 0.0
+shader_parameter/DiffuseColor = Color(0, 0, 0, 1)
+shader_parameter/Fogginess = 0.0
+shader_parameter/NormalUVSize = Vector3(1, 1, 1)
+shader_parameter/DiffuseIntensity = 1.0
+shader_parameter/AmbientColor = Color(0.165656, 0.165656, 0.165656, 1)
+shader_parameter/AmbientIntensity = 1.0
+shader_parameter/SpecIntensity = 1.0
+shader_parameter/Shininess = 2.0
+shader_parameter/SpecularStrength = 2.0
+shader_parameter/M_PI = 3.14159
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Options" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.217
+anchor_bottom = 0.154
+offset_top = 273.0
+offset_right = 100.016
+offset_bottom = 347.208
+grow_vertical = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_ww3h5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Options"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Play" type="Button" parent="UI/Options/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_gd0pv")
+text = "Play"
+
+[node name="Quit" type="Button" parent="UI/Options/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_gd0pv")
+text = "Quit"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.360713, 0, -0.932677, 0, 1, 0, 0.932677, 0, 0.360713, 0, 0, 0)
+mesh = SubResource("SphereMesh_2hdun")
+surface_material_override/0 = SubResource("ShaderMaterial_g04y4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.568691, -0.15988, 0.806863, 0, 0.980928, 0.194371, -0.822551, -0.110537, 0.557845, 0.342314, 0.201881, 0.198652)
+environment = SubResource("Environment_jt55j")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0799194, 0)
+mesh = SubResource("PlaneMesh_pjl6n")
+surface_material_override/0 = SubResource("ShaderMaterial_6vafr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.272095, 0.96227, 0, -0.96227, 0.272095, 0, 0.463692, 0.484078)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_yeybc")
+autoplay = true
+
+[connection signal="pressed" from="UI/Options/VBoxContainer/Play" to="UI/Options" method="_on_play_pressed"]
+[connection signal="pressed" from="UI/Options/VBoxContainer/Quit" to="UI/Options" method="_on_quit_pressed"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjjtpu60javkt"]
+
+[ext_resource type="Script" path="res://Scripts/bowling_ball.gd" id="1_no04n"]
+[ext_resource type="Shader" uid="uid://bk6y1suvexf4t" path="res://Assets/PhongShader.tres" id="2_o56ts"]
+[ext_resource type="Texture2D" uid="uid://858ilp486i6x" path="res://Assets/Textures/BACK144.png" id="3_csfu4"]
+[ext_resource type="Texture2D" uid="uid://dw1qpc6jq6atq" path="res://Assets/Textures/REFLECT.JPG" id="3_ljb7b"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_griom"]
+radius = 0.109
+height = 0.218
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cotmj"]
+render_priority = 0
+shader = ExtResource("2_o56ts")
+shader_parameter/Reflectivness = 0.2
+shader_parameter/DiffuseColor = Color(1, 1, 1, 1)
+shader_parameter/Fogginess = 0.0
+shader_parameter/NormalUVSize = Vector3(1, 1, 1)
+shader_parameter/DiffuseIntensity = 1.0
+shader_parameter/AmbientColor = Color(0.85098, 0.85098, 0.85098, 1)
+shader_parameter/AmbientIntensity = 1.0
+shader_parameter/SpecIntensity = 1.0
+shader_parameter/Shininess = 100.0
+shader_parameter/SpecularStrength = 50.0
+shader_parameter/M_PI = 3.14159
+shader_parameter/tex_frg_14 = ExtResource("3_csfu4")
+shader_parameter/environment_texture = ExtResource("3_ljb7b")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_71uw6"]
+radius = 0.109
+
+[node name="Ball" type="RigidBody3D"]
+mass = 12.7
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_no04n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_griom")
+surface_material_override/0 = SubResource("ShaderMaterial_cotmj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_71uw6")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]

@@ -1,0 +1,210 @@
+[gd_scene load_steps=28 format=3 uid="uid://d1tr6eo104ayg"]
+
+[ext_resource type="Script" path="res://Scripts/bowling_manager.gd" id="1_4lnjd"]
+[ext_resource type="Script" path="res://Scripts/ball_controls.gd" id="1_6p4yw"]
+[ext_resource type="PackedScene" uid="uid://cpeedum3og8ma" path="res://Assets/pins.tscn" id="1_ds5vt"]
+[ext_resource type="PackedScene" uid="uid://bcm5byvs0ouun" path="res://Assets/Scenes/player.tscn" id="2_x4fy0"]
+[ext_resource type="Texture2D" uid="uid://dwuffky6xqwqb" path="res://Assets/Textures/arrow.png" id="3_xm8mw"]
+[ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="4_1g5l8"]
+[ext_resource type="Shader" uid="uid://bk6y1suvexf4t" path="res://Assets/PhongShader.tres" id="5_5l3vp"]
+[ext_resource type="Texture2D" uid="uid://dw1qpc6jq6atq" path="res://Assets/Textures/REFLECT.JPG" id="6_57wvi"]
+[ext_resource type="PackedScene" uid="uid://d2lf1pxqnha2" path="res://Assets/Scenes/alley_enviornment.tscn" id="6_75m18"]
+[ext_resource type="Texture2D" uid="uid://858ilp486i6x" path="res://Assets/Textures/BACK144.png" id="6_c1n6m"]
+[ext_resource type="PackedScene" uid="uid://6rqlid2mql1f" path="res://Assets/Scenes/score_board.tscn" id="7_2fmpp"]
+[ext_resource type="Script" path="res://Scripts/Aberration.gd" id="9_kjhts"]
+[ext_resource type="PackedScene" uid="uid://wipx7dp0s38o" path="res://Assets/Scenes/loop_de_loop.tscn" id="9_o53nf"]
+[ext_resource type="PackedScene" uid="uid://bpng4edux2gba" path="res://Assets/Scenes/result.tscn" id="10_vt71k"]
+[ext_resource type="PackedScene" uid="uid://qjwgvbe10he" path="res://Assets/Scenes/flicker_ui.tscn" id="14_malit"]
+[ext_resource type="PackedScene" uid="uid://t4vlfjvvhpvu" path="res://Assets/Scenes/move_arrows.tscn" id="15_7rnue"]
+[ext_resource type="AudioStream" uid="uid://dy8um72ludhrc" path="res://Assets/Audio/calm music.ogg" id="15_c8jf4"]
+[ext_resource type="AudioStream" uid="uid://dhvrq640em0l0" path="res://Assets/Audio/not so calm music.ogg" id="16_b5mso"]
+[ext_resource type="PackedScene" uid="uid://cwsoihgo13aef" path="res://Assets/Scenes/gormless.tscn" id="19_p1en5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_k6y3d"]
+radius = 0.109
+height = 0.218
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cotmj"]
+render_priority = 0
+shader = ExtResource("5_5l3vp")
+shader_parameter/Reflectivness = 0.2
+shader_parameter/DiffuseColor = Color(1, 1, 1, 1)
+shader_parameter/Fogginess = 0.0
+shader_parameter/NormalUVSize = Vector3(1, 1, 1)
+shader_parameter/DiffuseIntensity = 1.0
+shader_parameter/AmbientColor = Color(0.85098, 0.85098, 0.85098, 1)
+shader_parameter/AmbientIntensity = 1.0
+shader_parameter/SpecIntensity = 1.0
+shader_parameter/Shininess = 100.0
+shader_parameter/SpecularStrength = 50.0
+shader_parameter/M_PI = 3.14159
+shader_parameter/tex_frg_14 = ExtResource("6_c1n6m")
+shader_parameter/environment_texture = ExtResource("6_57wvi")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b7fme"]
+size = Vector2(2, 0.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hyqh"]
+transparency = 1
+albedo_texture = ExtResource("3_xm8mw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pff5e"]
+size = Vector3(1.52, 0.1, 19.16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_md1wh"]
+size = Vector3(3.67114, 0.55127, 25.393)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oh1lw"]
+size = Vector3(0.974121, 7.08777, 31.6948)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jct5r"]
+size = Vector3(2.306, 7.989, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="Aberration" type="Node3D" parent="."]
+script = ExtResource("9_kjhts")
+
+[node name="Player" parent="." instance=ExtResource("2_x4fy0")]
+transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 0.399409, 1.73856, -18.2618)
+
+[node name="BowlingManager" type="Node3D" parent="."]
+script = ExtResource("1_4lnjd")
+
+[node name="BallControls" type="Node3D" parent="."]
+script = ExtResource("1_6p4yw")
+
+[node name="PlaceholderBall" type="Node3D" parent="BallControls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.9, -14)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BallControls/PlaceholderBall"]
+mesh = SubResource("SphereMesh_k6y3d")
+surface_material_override/0 = SubResource("ShaderMaterial_cotmj")
+
+[node name="Arrow" type="Node3D" parent="BallControls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -13.8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BallControls/Arrow"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 1)
+mesh = SubResource("PlaneMesh_b7fme")
+surface_material_override/0 = SubResource("StandardMaterial3D_3hyqh")
+
+[node name="Lane" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.32961)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lane"]
+shape = SubResource("BoxShape3D_pff5e")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Lane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11145, -0.299428, 3.33847)
+shape = SubResource("BoxShape3D_md1wh")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Lane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67603, 3.04388, -4.96811)
+shape = SubResource("BoxShape3D_oh1lw")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Lane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69461, 3.04388, 0.696716)
+shape = SubResource("BoxShape3D_oh1lw")
+
+[node name="pins" parent="." instance=ExtResource("1_ds5vt")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.546689, 4)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, 1.5, 0.75, 2)
+fov = 50.0
+script = ExtResource("4_1g5l8")
+
+[node name="Result" parent="Camera3D" instance=ExtResource("10_vt71k")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.15, -0.2, -1.25)
+
+[node name="CameraAngle1" type="Node3D" parent="."]
+transform = Transform3D(-0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, 1.5, 0.75, 2)
+
+[node name="CameraAngle2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1.5, -15)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.487052, 0.873373, 0, -0.873373, 0.487052, 0, 2.25045, 0)
+visible = false
+
+[node name="PinArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.49129)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PinArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0098877, 4.07982, 0)
+shape = SubResource("BoxShape3D_jct5r")
+
+[node name="AlleyEnviornment" parent="." instance=ExtResource("6_75m18")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreBoard" parent="UI" instance=ExtResource("7_2fmpp")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 55.0
+offset_top = 476.0
+offset_right = 1265.0
+offset_bottom = 584.0
+scale = Vector2(0.8, 0.8)
+
+[node name="FlickerUI" parent="UI" instance=ExtResource("14_malit")]
+layout_mode = 1
+offset_left = 1100.0
+offset_top = 50.0
+offset_right = 1100.0
+offset_bottom = 50.0
+
+[node name="Move arrows" parent="UI" instance=ExtResource("15_7rnue")]
+visible = false
+layout_mode = 1
+offset_left = 1100.0
+offset_top = 100.0
+offset_right = 1100.0
+offset_bottom = 100.0
+
+[node name="Bumps" type="Node3D" parent="."]
+visible = false
+
+[node name="LoopDeLoop" parent="Bumps" instance=ExtResource("9_o53nf")]
+transform = Transform3D(-2.65, 0, 4.00139e-07, 3.96946e-07, -0.334106, 2.62885, 5.04486e-08, 2.62885, 0.334106, 0, -1.04232, -5.37576)
+
+[node name="LoopDeLoop2" parent="Bumps" instance=ExtResource("9_o53nf")]
+transform = Transform3D(-2.65, 0, 4.00139e-07, 3.96946e-07, -0.334106, 2.62885, 5.04486e-08, 2.62885, 0.334106, 0, -1.04232, -3.67148)
+
+[node name="LoopDeLoop4" parent="Bumps" instance=ExtResource("9_o53nf")]
+transform = Transform3D(-2.65, 0, 4.00139e-07, 3.96946e-07, -0.334106, 2.62885, 5.04486e-08, 2.62885, 0.334106, 0, -1.04232, -2.05555)
+
+[node name="LoopDeLoop3" parent="Bumps" instance=ExtResource("9_o53nf")]
+transform = Transform3D(-2.65, 0, 4.00139e-07, 3.96946e-07, -0.334106, 2.62885, 5.04486e-08, 2.62885, 0.334106, 0, -1.04232, -7.15465)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_c8jf4")
+volume_db = -5.0
+autoplay = true
+
+[node name="Music2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_b5mso")
+volume_db = -5.0
+
+[node name="The Gorms" type="Node3D" parent="."]
+
+[node name="Gormless" parent="The Gorms" instance=ExtResource("19_p1en5")]
+transform = Transform3D(-0.600084, 0.202072, -0.773993, -0.512536, 0.645749, 0.565964, 0.61417, 0.736326, -0.283934, -2.94711, 1.97201, -25.1719)
+visible = false
+
+[node name="Gormless2" parent="The Gorms" instance=ExtResource("19_p1en5")]
+transform = Transform3D(0.200782, 0, -0.533466, 0, 0.57, 0, 0.533466, 0, 0.200782, -1.43438, -0.83042, 5.12938)
+visible = false
+
+[connection signal="start_frame" from="BowlingManager" to="Aberration" method="_on_bowling_manager_start_frame"]
+[connection signal="body_entered" from="PinArea" to="BowlingManager" method="_on_pin_area_body_entered"]
+[connection signal="body_entered" from="PinArea" to="Camera3D" method="_on_pin_area_body_entered"]

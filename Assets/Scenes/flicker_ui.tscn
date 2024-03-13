@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://qjwgvbe10he"]
+
+[ext_resource type="Script" path="res://Scripts/FlickerUI.gd" id="1_2i1ab"]
+[ext_resource type="FontFile" uid="uid://bgkycjgnq0ovr" path="res://Assets/Font/Ldfcomicsans-jj7l.ttf" id="2_vacj8"]
+
+[node name="FlickerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2i1ab")
+
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -27.5
+offset_bottom = 27.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_vacj8")
+text = "press space to continue"

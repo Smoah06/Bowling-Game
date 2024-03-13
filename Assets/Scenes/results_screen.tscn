@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://fla5fmn73q8w"]
+
+[ext_resource type="Script" path="res://Scripts/results_screen.gd" id="1_8fx8r"]
+[ext_resource type="PackedScene" uid="uid://d2lf1pxqnha2" path="res://Assets/Scenes/alley_enviornment.tscn" id="2_tf3xh"]
+[ext_resource type="PackedScene" uid="uid://qjwgvbe10he" path="res://Assets/Scenes/flicker_ui.tscn" id="3_jlwc1"]
+[ext_resource type="PackedScene" uid="uid://6rqlid2mql1f" path="res://Assets/Scenes/score_board.tscn" id="3_mta40"]
+[ext_resource type="AudioStream" uid="uid://c8icja0xei8ij" path="res://Assets/Audio/results.ogg" id="4_0uame"]
+
+[node name="ResultsScreen" type="Node3D"]
+script = ExtResource("1_8fx8r")
+
+[node name="AlleyEnviornment" parent="." instance=ExtResource("2_tf3xh")]
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 8, 10)
+fov = 71.8
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FlickerUI" parent="UI" instance=ExtResource("3_jlwc1")]
+layout_mode = 1
+offset_left = 1100.0
+offset_top = 50.0
+offset_right = 1100.0
+offset_bottom = 50.0
+
+[node name="ScoreBoard" parent="UI" instance=ExtResource("3_mta40")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 230.0
+offset_right = 1190.0
+offset_bottom = 338.0
+scale = Vector2(0.925, 0.925)
+
+[node name="FinalScore" type="RichTextLabel" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 500.0
+offset_top = 130.0
+offset_right = 595.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "100"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0uame")
+volume_db = -5.0
+autoplay = true

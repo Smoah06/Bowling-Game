@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpeedum3og8ma"]
+
+[ext_resource type="PackedScene" uid="uid://biabn2amy3mss" path="res://Assets/Scenes/bowling_pin.tscn" id="1_4wcal"]
+[ext_resource type="Script" path="res://Assets/pins.gd" id="1_r3qvs"]
+
+[node name="pins" type="Node3D" node_paths=PackedStringArray("pins")]
+script = ExtResource("1_r3qvs")
+pins = [NodePath("pin1"), NodePath("pin2"), NodePath("pin3"), NodePath("pin4"), NodePath("pin5"), NodePath("pin6"), NodePath("pin7"), NodePath("pin8"), NodePath("pin9"), NodePath("pin10")]
+
+[node name="pin1" parent="." instance=ExtResource("1_4wcal")]
+
+[node name="pin2" parent="." instance=ExtResource("1_4wcal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21, 0, -0.36)
+mass = 5.0
+
+[node name="pin3" parent="." instance=ExtResource("1_4wcal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21, 0, -0.36)
+
+[node name="pin4" parent="." instance=ExtResource("1_4wcal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42, 0, -0.727)
+
+[node name="pin5" parent="." instance=ExtResource("1_4wcal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.727)
+
+[node name="pin6" parent="." instance=ExtResource("1_4wcal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42, 0, -0.727)
+
+[node name="pin7" parent="." instance=ExtResource("1_4wcal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.63, 0, -1.087)
+
+[node name="pin8" parent="." instance=ExtResource("1_4wcal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21, 0, -1.087)
+
+[node name="pin9" parent="." instance=ExtResource("1_4wcal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21, 0, -1.087)
+
+[node name="pin10" parent="." instance=ExtResource("1_4wcal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.63, 0, -1.087)
